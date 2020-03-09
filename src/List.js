@@ -15,11 +15,11 @@ function List() {
     <div className="List">
       <ul>
         {tasks.map((task, i) => (
-          <li>
             <Task key={uuid()}
-              remove={() => handleRemove(i)}
-              task={task} />)
-          </li>))
+              remove={handleRemove}
+              task={task}
+              index={i}
+              />))
           }
       </ul>
     </div>
