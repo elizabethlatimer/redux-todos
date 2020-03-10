@@ -6,7 +6,6 @@ import Task from './Task';
 function List() {
   const tasks = useSelector(st => st.tasks);
   const dispatch = useDispatch();
-  console.log(tasks)
   const handleRemove = (id) => {
     dispatch({ type: "REMOVE", payload: id });
   }

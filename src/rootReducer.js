@@ -5,14 +5,12 @@ function rootReducer(state = INITIAL_STATE, action) {
     case "ADD":
       return {...state, tasks: [...state.tasks, {task: action.payload.task, id:action.payload.id}]};
     case "REMOVE":
-      let newArray = [...state.tasks];
       const id = action.payload;
-      newArray.filter((task) => task.id !== id)
-      console.log(newArray);
+      let newArray = state.tasks.filter((task) => {
+        return task.id !== id})
       return {...state, tasks: newArray}
     case "EDIT":
-      let editedArray = [...state.tasks];
-      editedArray.map(task => {
+      let editedArray = state.tasks.map(task => {
         return task.id === id ? {...task, task: action.payload.task} : task});
       return {...state, tasks: editedArray}
     default:
