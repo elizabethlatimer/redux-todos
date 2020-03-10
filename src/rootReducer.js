@@ -13,9 +13,8 @@ function rootReducer(state = INITIAL_STATE, action) {
     case "EDIT":
       const editId = action.payload.id;
       let editedArray = state.tasks.map(task => {
-        return task.id === editId ? { ...task, task: action.payload.task } : {...task};
+        return task.id === editId ? { ...task, task: action.payload.task } : task;
       });
-      console.log(editedArray);
       return { ...state, tasks: editedArray };
     default:
       return state;

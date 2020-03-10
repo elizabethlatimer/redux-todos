@@ -13,12 +13,12 @@ function List() {
     <div className="List">
       <ul>
         {tasks.map((task) => (
-            <Task key={task.id}
-              remove={handleRemove}
-              task={task.task}
-              id={task.id}
-              />))
-          }
+          <Task key={task.id}
+            remove={handleRemove}
+            task={task.task}
+            id={task.id}
+          />))
+        }
       </ul>
     </div>
   )

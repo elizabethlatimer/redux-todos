@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 function Form({ action, initialValue = { task: "" }, id = null, setEditing }) {
   const initialState = initialValue;
