@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {v4 as uuid} from 'uuid';
 
-function Form({ action, initialValue = { task: "" }, id = null }) {
+function Form({ action, initialValue = { task: "" }, id = null, setEditing }) {
   const initialState = initialValue;
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(initialState);
@@ -14,9 +14,10 @@ function Form({ action, initialValue = { task: "" }, id = null }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    let taskId =   id ? id : uuid();
+    let taskId = id ? id : uuid();
     dispatch({ type: action, payload: { task: formData.task, id: taskId } });
     setFormData(initialState);
+    if (setEditing) setEditing(false);
   }
 
 
